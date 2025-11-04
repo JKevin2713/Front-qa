@@ -1,6 +1,6 @@
 export async function Autenticar(valores) {
   try {
-    const temp = await fetch("http://localhost:5000/usuarios/login", {
+    const temp = await fetch("https://backend-qa.vercel.app/usuarios/login", {
       method: 'POST',
       body: JSON.stringify(valores),
       headers: {

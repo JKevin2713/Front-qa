@@ -69,7 +69,7 @@ const FormularioLevantamiento = () => {
     const fetchUsuarioDetallado = async () => {
       if (!usuario?.idusuario) return;
       try {
-        const res = await fetch(`http://localhost:5000/usuariodetallado/${usuario.idusuario}`);
+        const res = await fetch(`https://backend-qa.vercel.app/usuariodetallado/${usuario.idusuario}`);
         const data = await res.json();
         if (res.ok) {
           setFormValues({
@@ -89,7 +89,7 @@ const FormularioLevantamiento = () => {
 
     const fetchCursos = async () => {
       try {
-        const res = await fetch('http://localhost:5000/cursos');
+        const res = await fetch('https://backend-qa.vercel.app/cursos');
         const data = await res.json();
         if (res.ok) {
           setCursosDisponibles(data);
@@ -143,7 +143,7 @@ const FormularioLevantamiento = () => {
       // idtiposolicitud, idregla pueden agregarse si los manejas en el frontend
     };
     try {
-      const res = await fetch('http://localhost:5000/formularios/levantamientos', {
+      const res = await fetch('https://backend-qa.vercel.app/formularios/levantamientos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)

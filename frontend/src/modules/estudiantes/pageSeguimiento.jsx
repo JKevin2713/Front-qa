@@ -31,7 +31,7 @@ const PageSeguimiento = () => {
     const obtenerSeguimiento = async () => {
       if (!usuario?.idusuario) return;
       try {
-        const res = await fetch(`http://localhost:5000/seguimientoUsuario/${usuario.idusuario}`);
+        const res = await fetch(`https://backend-qa.vercel.app/seguimientoUsuario/${usuario.idusuario}`);
         const data = await res.json();
         setSolicitudes(data);
       } catch (error) {
@@ -70,10 +70,10 @@ const PageSeguimiento = () => {
   const handleEliminar = async (solicitud) => {
     if (!window.confirm('¿Seguro que deseas eliminar esta solicitud?')) return;
     try {
-      const res = await fetch(`http://localhost:5000/seguimientoUsuario/${solicitud.idformulario}`, { method: 'DELETE' });
+      const res = await fetch(`https://backend-qa.vercel.app/seguimientoUsuario/${solicitud.idformulario}`, { method: 'DELETE' });
       if (res.ok) {
         // Refresca la lista desde el backend para asegurar que está actualizada
-        const res2 = await fetch(`http://localhost:5000/seguimientoUsuario/${usuario.idusuario}`);
+        const res2 = await fetch(`https://backend-qa.vercel.app/seguimientoUsuario/${usuario.idusuario}`);
         const data2 = await res2.json();
         setSolicitudes(data2);
         alert('Solicitud eliminada correctamente');

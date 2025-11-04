@@ -50,7 +50,7 @@ const FormularioInclusion = () => {
     const fetchUsuarioDetallado = async () => {
       if (!usuario?.idusuario) return;
       try {
-        const res = await fetch(`http://localhost:5000/usuariodetallado/${usuario.idusuario}`);
+        const res = await fetch(`https://backend-qa.vercel.app/usuariodetallado/${usuario.idusuario}`);
         const data = await res.json();
         if (res.ok) {
           setFormValues(prev => ({
@@ -69,7 +69,7 @@ const FormularioInclusion = () => {
     };
     const fetchCursos = async () => {
       try {
-        const res = await fetch('http://localhost:5000/cursos');
+        const res = await fetch('https://backend-qa.vercel.app/cursos');
         const data = await res.json();
         if (res.ok) {
           setCursosDisponibles(data);
@@ -90,7 +90,7 @@ const FormularioInclusion = () => {
 
   const handleEnviar = async () => {
     try {
-      const res = await fetch('http://localhost:5000/formularios/inclusiones', {
+      const res = await fetch('https://backend-qa.vercel.app/formularios/inclusiones', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
